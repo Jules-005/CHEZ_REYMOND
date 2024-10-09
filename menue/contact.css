@@ -1,0 +1,168 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    overflow: hidden; /* Évite le défilement */
+    background: linear-gradient(270deg, #ffefba, #ffffff, #ffefba, #ffffff);
+            background-size: 400% 400%; /* Pour permettre à l'animation de bouger */
+            animation: gradient-animation 5s ease infinite; /* Durée et type d'animation */
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%; /* Début de l'animation */
+            }
+            50% {
+                background-position: 100% 50%; /* Milieu de l'animation */
+            }
+            100% {
+                background-position: 0% 50%; /* Fin de l'animation */
+            }
+        }
+header {
+    background-color: #333;
+    color: rgb(255, 255, 255);
+    padding: 10px 0;
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 40px;
+}
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.container {
+    flex: 1; /* Permet au conteneur de grandir pour remplir l'espace restant */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box; /* Pour inclure le padding dans la taille */
+}
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    margin-top: 9.5%;
+}
+.card h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+.card p {
+    margin: 5px 0;
+    color: #000000;
+}
+.card a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+.card a:hover {
+    text-decoration: underline;
+}
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #ffffff;
+    position: fixed; /* Fixe le footer en bas de la fenêtre */
+    bottom: 0;
+    width: 100%; /* Occupe toute la largeur de la fenêtre */
+}
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#search {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+/* Style pour les suggestions */
+#suggestions {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 375px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    margin-left: 40%;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f0f0f0;
+}
+.cart-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.cart-toggle:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+.item-count {
+    background-color: #ff0000;
+    border-radius: 50%;
+    color: white;
+    padding: 3px 6px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 12px;
+}

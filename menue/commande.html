@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+    <link rel="stylesheet" href="commande.css">
+    <script src="java.js"></script>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Page de Paiement</h1>
+    <form id="payment-form">
+        <div class="payment-option">
+            <label>
+                <input type="radio" name="payment-method" value="carte" onclick="showDetails('carte')"> Carte de Crédit
+            </label>
+        </div>
+        <div class="payment-option">
+            <label>
+                <input type="radio" name="payment-method" value="paypal" onclick="showDetails('paypal')"> PayPal
+            </label>
+        </div>
+        <div class="payment-option">
+            <label>
+                <input type="radio" name="payment-method" value="virement" onclick="showDetails('virement')"> Virement Bancaire
+            </label>
+        </div>
+
+        <div id="carte-details" class="payment-details">
+            <h3>Détails de la Carte de Crédit</h3>
+            <label for="card-number">Numéro de Carte :</label>
+            <input type="text" id="card-number" required><br><br>
+            <label for="expiry-date">Date d'Expiration :</label>
+            <input type="text" id="expiry-date" required placeholder="MM/AA"><br><br>
+            <label for="cvv">CVV :</label>
+            <input type="text" id="cvv" required><br><br>
+        </div>
+
+        <div id="paypal-details" class="payment-details">
+            <h3>Détails PayPal</h3>
+            <label for="paypal-email">Email PayPal :</label>
+            <input type="email" id="paypal-email" required><br><br>
+        </div>
+
+        <div id="virement-details" class="payment-details">
+            <h3>Détails du Virement</h3>
+            <label for="bank-account">Numéro de Compte :</label>
+            <input type="text" id="bank-account" required><br><br>
+        </div>
+
+        <div>
+            <label for="promo-code">Code Promo :</label>
+            <input type="text" id="promo-code"><br><br>
+        </div>
+
+        <button type="submit">Payer</button>
+    </form>
+
+    <script>
+        function showDetails(method) {
+            // Cacher tous les détails de paiement
+            document.getElementById('carte-details').style.display = 'none';
+            document.getElementById('paypal-details').style.display = 'none';
+            document.getElementById('virement-details').style.display = 'none';
+            
+            // Montrer les détails en fonction du moyen de paiement choisi
+            if (method === 'carte') {
+                document.getElementById('carte-details').style.display = 'block';
+            } else if (method === 'paypal') {
+                document.getElementById('paypal-details').style.display = 'block';
+            } else if (method === 'virement') {
+                document.getElementById('virement-details').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

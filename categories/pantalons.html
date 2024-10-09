@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalons - Ma Boutique de Vêtements</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="java.js"></script>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND; Pantalons</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../menue/produit.html">Produits</a></li>
+                <li><a href="../menue/a_propos.html">À propos</a></li>
+                <li><a href="../menue/contact.html">Contact</a></li>
+            </ul>
+            <button class="cart-toggle" onclick="goToCart()">
+                🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+            </button>
+        </nav>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+    <section class="products">
+        <div class="product">
+            <a href="article/cargo.html">
+                <div class="product-image-wrapper">
+                    <img src="image/cargo.webp" alt="cargo" class="product-image">
+                    <div class="overlay">
+                        <h3>Cargo</h3>
+                        <p>Prix : 35.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/jeanClasique.html">
+                <div class="product-image-wrapper">
+                    <img src="image/jeanClasique.webp" alt="jeanClasique" class="product-image">
+                    <div class="overlay">
+                        <h3>Jean Clasique</h3>
+                        <p>
+                            <span class="old-price">32.99€</span> 21.44
+                        </p>
+                        <p class="discount">-35%</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/jeanelastiqué.html">
+                <div class="product-image-wrapper">
+                    <img src="image/jeanelastiqué.webp" alt="jeanelastiqué" class="product-image">
+                    <div class="overlay">
+                        <h3>Jean élastiqué</h3>
+                        <p>Prix : 37.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/Bermuda long extensible.html">
+                <div class="product-image-wrapper">
+                    <img src="image/Bermuda long extensible.webp" alt="Bermuda long extensible" class="product-image">
+                    <div class="overlay">
+                        <h3>Bermuda long extensible</h3>
+                        <p>
+                            <span class="old-price">24.99€</span> 13.99
+                        </p>
+                        <p class="discount">-44%</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/jeanextensible.html">
+                <div class="product-image-wrapper">
+                    <img src="image/jeanextensible.webp" alt="jeanextensible" class="product-image">
+                    <div class="overlay">
+                        <h3>Jean extensible</h3>
+                        <p>Prix : 27.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    
+        <div class="product">
+            <a href="article/pantalonextensible.html">
+                <div class="product-image-wrapper">
+                    <img src="image/pantalonextensible.webp" alt="pantalonextensible" class="product-image">
+                    <div class="overlay">
+                        <h3>Pantalon extensible</h3>
+                        <p>Prix : 35.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/JeanSlim.html">
+                <div class="product-image-wrapper">
+                    <img src="image/JeanSlim.webp" alt="JeanSlim" class="product-image">
+                    <div class="overlay">
+                        <h3>Jean Slim</h3>
+                        <p>Prix : 19.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/Jogging.html">
+                <div class="product-image-wrapper">
+                    <img src="image/Jogging.webp" alt="Jogging" class="product-image">
+                    <div class="overlay">
+                        <h3>Jogging</h3>
+                        <p>Prix : 24.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/pantalonthermoextensible.html">
+                <div class="product-image-wrapper">
+                    <img src="image/pantalonthermoextensible.webp" alt="pantalonthermoextensible" class="product-image">
+                    <div class="overlay">
+                        <h3>Pantalon thermo extensible</h3>
+                        <p>
+                            <span class="old-price">44 €</span> 35€
+                        </p>
+                        <p class="discount">-20%</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="category-summary">
+        <h2>Découvrez nos différentes catégories de produits</h2>
+        <div class="categories">
+            <div class="category">
+                <a href="../categories/chaussures.html">
+                    <div class="category-image-wrapper">
+                        <img src="../menue/image/imagecatégoriechausure.jfif" alt="Chaussures" class="category-image">
+                        <div class="overlay">
+                            <h3>Chaussures</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../categories/tshirt.html">
+                    <div class="category-image-wrapper">
+                        <img src="../menue/image/imagecatégorietshirt.jfif" alt="T-shirts" class="category-image">
+                        <div class="overlay">
+                            <h3>T-shirts</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../categories/ensembles.html">
+                    <div class="category-image-wrapper">
+                        <img src="../menue/image/imagecatégorieensemble.jfif" alt="Ensembles" class="category-image">
+                        <div class="overlay">
+                            <h3>Ensembles</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../menue/promotion.html">
+                    <div class="category-image-wrapper">
+                        <img src="../categories/image/imagepromotion.jfif" alt="promotion" class="category-image">
+                        <div class="overlay">
+                            <h3>Promotions</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy;2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+</body>
+</html>

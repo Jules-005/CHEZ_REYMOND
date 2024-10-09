@@ -1,0 +1,202 @@
+html, body {
+    height: 100%; /* Assure que la hauteur de la page couvre tout l'écran */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Évite le défilement */
+    background: linear-gradient(270deg, #ffefba, #ffffff, #ffefba, #ffffff);
+            background-size: 400% 400%; /* Pour permettre à l'animation de bouger */
+            animation: gradient-animation 5s ease infinite; /* Durée et type d'animation */
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%; /* Début de l'animation */
+            }
+            50% {
+                background-position: 100% 50%; /* Milieu de l'animation */
+            }
+            100% {
+                background-position: 0% 50%; /* Fin de l'animation */
+            }
+        }
+
+
+header {
+    background-color: #333;
+    color: rgb(255, 255, 255);
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 40px;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap; /* Permet de gérer le débordement */
+    justify-content: space-around; /* Espace entre les produits */
+    margin: 20px; /* Marge autour de la section des produits */
+}
+
+.product {
+    position: relative; /* Pour positionner l'overlay */
+    margin: 10px; /* Marge entre les produits */
+    overflow: hidden; /* Cache les débordements */
+    transition: transform 0.3s; /* Animation de transformation */
+    cursor: pointer; /* Change le curseur */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre autour des produits */
+}
+
+.product:hover {
+    transform: scale(1.05); /* Agrandit la case au survol */
+}
+
+.product-image-wrapper {
+    position: relative; /* Positionnement relatif pour le wrapper */
+    width: 100%; /* Prend toute la largeur */
+    height: 100%; /* Prend toute la hauteur */
+}
+
+.product-image {
+    width: 100%; /* Prend toute la largeur */
+    height: 100%; /* Prend toute la hauteur */
+    object-fit: cover; /* Recouvre sans déformer l'image */
+    display: block; /* Évite l'espace en bas */
+    transition: opacity 0.3s; /* Transition pour l'image */
+}
+
+.overlay {
+    position: absolute; /* Positionnement absolu par rapport à .product */
+    top: 0; /* Aligne en haut */
+    left: 0; /* Aligne à gauche */
+    right: 0; /* Aligne à droite */
+    bottom: 0; /* Aligne en bas */
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+    display: flex; /* Utilise flexbox pour centrer le contenu */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    opacity: 0; /* Masque l'overlay par défaut */
+    transition: opacity 0.3s; /* Animation pour l'apparition de l'overlay */
+}
+
+.product:hover .overlay {
+    opacity: 1; /* Affiche l'overlay au survol */
+}
+
+.overlay h3,
+.overlay p {
+    margin: 5px 0; /* Marge entre le nom et le prix */
+    color: #333; /* Couleur du texte */
+}
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #ffffff;
+    position: fixed; /* Fixe le footer en bas de la fenêtre */
+    bottom: 0;
+    width: 100%; /* Occupe toute la largeur de la fenêtre */
+}
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#search {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+/* Style pour les suggestions */
+#suggestions {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 375px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    margin-left: 40%;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f0f0f0;
+}
+.cart-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.cart-toggle:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+.item-count {
+    background-color: #ff0000;
+    border-radius: 50%;
+    color: white;
+    padding: 3px 6px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 12px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEZ REYMOND</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="java.js"></script>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="menue/produit.html">Produits</a></li>
+                <li><a href="menue/a_propos.html">À propos</a></li>
+                <li><a href="menue/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cart-toggle" onclick="goToCart()">
+            🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+        </button>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+    <main>  
+        <section class="welcome">
+            <h2>Bienvenue dans notre Boutique en ligne !</h2>
+            <p>Découvrez notre sélection de vêtements tendance et élégants.</p>
+        </section>
+
+        <section class="promotions">
+            <h2>Promotions Chez REYMOND</h2>
+            <p>Profitez de nos soldes exceptionnelles ! Ne manquez pas nos offres spéciales sur toute une gamme de produits.</p>
+            <a href="menue/promotion.html" class="btn">Voir les Promotions</a>
+        </section>
+
+        <section class="new-arrivals">
+            <h2>Nouveautés</h2>
+            <p>Découvrez notre nouvelle ensemble confort T-shirt et Bermuda ainsi que les Mocassins qui vont avec !</p>
+            <a href="menue/nouveaute.html" class="btn">Voir les Nouveautés</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+</body>
+</html>

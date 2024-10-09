@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>à propos de CHEZ REYMOND</title>
+    <link rel="stylesheet" href="propos.css">
+    <script src="java.js"></script>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="produit.html">Produits</a></li>
+                <li><a href="../menue/a_propos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cart-toggle" onclick="goToCart()">
+            🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+        </button>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+
+<main>
+    <section id="about">
+        <h2>À Propos de Nous</h2>
+        <p>Bienvenue dans notre boutique de vêtements officielle, où style et qualité se rencontrent. Fondée en 2024 par Monsieur REYMOND, notre mission est de fournir des vêtements à la fois tendance et accessibles à tous, et pas que pour les REYMOND pour vous aussi.</p>
+        <p>Nous croyons que chaque personne mérite de se sentir bien dans sa peau. C'est pourquoi nous proposons une sélection de vêtements qui allient confort et élégance, tout en respectant l'environnement.</p>
+        <p>Notre équipe est passionnée par la mode et dévouée à offrir un service à la clientèle exceptionnel. Nous sommes ici pour vous aider à trouver le style qui vous correspond, un style comme le notre les REYMOND.</p>
+        <p>N'hésitez pas à nous contacter pour toute question ou suggestion, attendez vous à ce que nous vous répondions d'ici l'année à venir. Votre satisfaction est notre priorité !</p>
+    </section>
+</main>
+    
+    <footer>
+        <p>&copy; 2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+</body>
+</html>

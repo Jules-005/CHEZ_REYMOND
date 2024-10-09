@@ -1,0 +1,287 @@
+html, body {
+    height: 100%; /* Assure que la hauteur de la page couvre tout l'écran */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column; 
+    background: linear-gradient(270deg, #D3D3D3, #FFFFFF, #D3D3D3, #FFFFFF);
+            background-size: 400% 400%; /* Pour permettre à l'animation de bouger */
+            animation: gradient-animation 5s ease infinite; /* Durée et type d'animation */
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%; /* Début de l'animation */
+            }
+            50% {
+                background-position: 100% 50%; /* Milieu de l'animation */
+            }
+            100% {
+                background-position: 0% 50%; /* Fin de l'animation */
+            }
+        }
+
+header {
+    background-color: #333;
+    color: rgb(255, 255, 255);
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 40px;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+/* Section des produits */
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 produits par ligne */
+    gap: 40px; /* Espace entre les produits augmenté */
+    margin: 40px; /* Marges autour de la section */
+}
+
+/* Style pour chaque produit */
+.product {
+    position: relative;
+    overflow: hidden; /* Cache les débordements */
+    transition: transform 0.3s; /* Animation de transformation */
+    cursor: pointer; /* Change le curseur en pointeur */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre pour chaque case */
+    height: 450px; /* Hauteur de chaque case augmentée */
+    width: 100%; /* Largeur à 100% pour occuper l'espace disponible */
+}
+
+/* Agrandit la case au survol */
+.product:hover {
+    transform: scale(1.05); /* Agrandit la case au survol */
+}
+
+/* Wrapper de l'image */
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* L'image remplit toute la case */
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recouvre toute la case sans déformation */
+    display: block;
+    transition: opacity 0.3s; /* Transition pour rendre l'image transparente */
+}
+
+/* Overlay pour le texte et le prix */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.85); /* Couleur de fond semi-transparente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Invisible au début */
+    transition: opacity 0.3s;
+}
+
+/* Affiche l'overlay au survol */
+.product:hover .overlay {
+    opacity: 1;
+}
+
+/* Rendre l'image transparente au survol */
+.product:hover .product-image {
+    opacity: 0.3;
+}
+
+/* Style pour le texte dans l'overlay */
+.overlay h3,
+.overlay p {
+    margin: 5px 0;
+    color: #333; /* Couleur du texte */
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Section des catégories */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.category {
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 250px; /* Taille fixe pour uniformiser toutes les cases */
+    height: 350px; /* Ajustement de la hauteur */
+}
+
+.category:hover {
+    transform: scale(1.05);
+}
+
+.category-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.category:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+}
+
+.discount {
+    color: #ff0000;
+    font-weight: bold;
+}
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#search {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+#results {
+    margin-top: 20px;
+}
+
+/* Style pour les suggestions */
+#suggestions {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 375px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    margin-left: 40%;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f0f0f0;
+}
+.cart-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.cart-toggle:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+.item-count {
+    background-color: #ff0000;
+    border-radius: 50%;
+    color: white;
+    padding: 3px 6px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 12px;
+}

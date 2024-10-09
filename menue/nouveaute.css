@@ -1,0 +1,223 @@
+html, body {
+    height: 100%; /* Assure que la hauteur de la page couvre tout l'écran */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Évite le défilement */
+    background: linear-gradient(270deg, #e7b6b6, #ff9e9e, #e7b6b6, #FFFFFF);
+            background-size: 400% 400%; /* Pour permettre à l'animation de bouger */
+            animation: gradient-animation 5s ease infinite; /* Durée et type d'animation */
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%; /* Début de l'animation */
+            }
+            50% {
+                background-position: 100% 50%; /* Milieu de l'animation */
+            }
+            100% {
+                background-position: 0% 50%; /* Fin de l'animation */
+            }
+        }
+
+
+header {
+    background-color: #333;
+    color: rgb(255, 255, 255);
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 40px;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #ffffff;
+    position: fixed; /* Fixe le footer en bas de la fenêtre */
+    bottom: 0;
+    width: 100%; /* Occupe toute la largeur de la fenêtre */
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste le nombre de colonnes selon l'espace disponible */
+    gap: 40px; /* Espace entre les produits */
+    margin: 40px; /* Marges autour de la section */
+    margin-left: 20%;
+}
+
+
+/* Style pour chaque produit */
+.product {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: auto; /* Ajuste automatiquement la hauteur selon le contenu */
+    width: 50%; /* Largeur à 100% pour occuper l'espace disponible */
+}
+
+/* Wrapper de l'image */
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Hauteur de l'image */
+    overflow: hidden; /* Cache les débordements */
+}
+
+/* L'image remplit toute la case */
+.product-image, .product-image-hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recouvre toute la case sans déformation */
+    display: block;
+    transition: opacity 0.3s; /* Transition pour l'effet de survol */
+}
+
+/* L'image au survol est cachée par défaut */
+.product-image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* Au survol, l'image principale devient transparente et l'autre apparaît */
+.product:hover .product-image {
+    opacity: 0;
+}
+
+.product:hover .product-image-hover {
+    opacity: 1;
+}
+
+/* Style pour le texte (titre et prix) */
+.product-info {
+    text-align: center;
+    padding: 15px;
+}
+
+.product-info h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.product-info p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Styles spécifiques pour les prix */
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.current-price {
+    color: #e60000;
+    font-weight: bold;
+}
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#search {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+/* Style pour les suggestions */
+#suggestions {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 375px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    margin-left: 40%;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f0f0f0;
+}
+.cart-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.cart-toggle:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+.item-count {
+    background-color: #ff0000;
+    border-radius: 50%;
+    color: white;
+    padding: 3px 6px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 12px;
+}

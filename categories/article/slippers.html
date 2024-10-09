@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="ajava.js"></script>
+    <title>Détails du produit</title>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Accueil</a></li>
+                <li><a href="../../menue/produit.html">Produits</a></li>
+                <li><a href="../../menue/a_propos.html">À propos</a></li>
+                <li><a href="../../menue/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cart-toggle" onclick="goToCart()">
+            🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+        </button>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+    
+  
+    <div class="product-detail">
+        <div class="product-images">
+            <img src="../image/slippers.webp" alt="Slippers" class="main-image" id="mainImage">
+            <div class="thumbnail-images">
+                <img src="../image/slippers.webp" alt="Slippers - vue 1" class="thumbnail" onclick="changeImage(this)">
+                <img src="../image/slippers2.webp" alt="Slippers - vue 2" class="thumbnail" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1>Slippers</h1>
+            <p class="price">Prix : 30,99€</p>
+
+            <div class="size-selection">    
+                <label for="size">Choisissez votre taille :</label>
+                <select id="size">
+                    <option value="42">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                    <option value="46">46</option>
+                    <option value="47">47</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="product">
+                <button class="btn btn-primary" onclick="addToCart('Slippers', 30.99)">Ajouter au panier</button>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="product-description">
+        <h2>Description</h2>
+        <p>
+            Ces slippers sont l'option idéale pour un confort quotidien. Conçues avec des matériaux doux et respirants, elles sont parfaites pour une utilisation en intérieur comme en extérieur. Légères et élégantes, elles ajoutent une touche décontractée et sophistiquée à vos moments de détente. Disponibles en plusieurs tailles, elles s'adaptent à tous vos besoins pour des journées confortables.
+        </p>
+    </div>
+    <section class="category-summary">
+        <h2>Découvrez nos autres catégories de produits</h2>
+        <div class="categories">
+            <div class="category">
+                <a href="../../categories/chaussures.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégoriechausure.jfif" alt="Chaussures" class="category-image">
+                        <div class="overlay">
+                            <h3>Chaussures</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/tshirt.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégorietshirt.jfif" alt="T-shirts" class="category-image">
+                        <div class="overlay">
+                            <h3>T-shirts</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/pantalons.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégoriepantalon.jfif" alt="Pantalons" class="category-image">
+                        <div class="overlay">
+                            <h3>Pantalons</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/ensembles.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégorieensemble.jfif" alt="Ensembles" class="category-image">
+                        <div class="overlay">
+                            <h3>Ensembles</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+
+    <script>
+        function changeImage(thumbnail) {
+            var mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+        }
+    </script>
+</body>
+</html>

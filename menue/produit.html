@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEZ REYMOND</title>
+    <link rel="stylesheet" href="produit.css">
+    <script src="java.js"></script>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="produit.html">Produits</a></li>
+                <li><a href="../menue/a_propos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cart-toggle" onclick="goToCart()">
+            🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+        </button>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+    <section class="products">
+        <div class="product">
+            <a href="../categories/chaussures.html">
+                <div class="product-image-wrapper">
+                    <img src="image/imagecatégoriechausure.jfif" alt="Chaussures" class="product-image">
+                    <div class="overlay">
+                        <h3>Chaussures</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="../categories/pantalons.html">
+                <div class="product-image-wrapper">
+                    <img src="image/imagecatégoriepantalon.jfif" alt="Pantalons" class="product-image">
+                    <div class="overlay">
+                        <h3>Pantalons</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="../categories/tshirt.html">
+                <div class="product-image-wrapper">
+                    <img src="image/imagecatégorietshirt.jfif" alt="T-shirts" class="product-image">
+                    <div class="overlay">
+                        <h3>T-shirts</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="../categories/ensembles.html">
+                <div class="product-image-wrapper">
+                    <img src="image/imagecatégorieensemble.jfif" alt="Ensembles" class="product-image">
+                    <div class="overlay">
+                        <h3>Ensembles</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+</body>
+</html>

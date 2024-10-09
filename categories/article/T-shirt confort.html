@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="ajava.js"></script>
+    <title>Détails du produit - T-shirt confort</title>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Accueil</a></li>
+                <li><a href="../../menue/produit.html">Produits</a></li>
+                <li><a href="../../menue/a_propos.html">À propos</a></li>
+                <li><a href="../../menue/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cart-toggle" onclick="goToCart()">
+            🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+        </button>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+    
+ 
+    <div class="product-detail">
+        <div class="product-images">
+            <img src="../image/T-shirt confort.webp" alt="T-shirt confort" class="main-image" id="mainImage">
+            <div class="thumbnail-images">
+                <img src="../image/T-shirt confort.webp" alt="T-shirt confort - vue 1" class="thumbnail" onclick="changeImage(this)">
+                <img src="../image/tshirtconfort2.webp" alt="T-shirt confort - vue 2" class="thumbnail" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1>T-shirt confort</h1>
+            <p class="price">Prix : 16.99€</p>
+
+            <div class="size-selection">    
+                <label for="size">Choisissez votre taille :</label>
+                <select id="size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="product">
+                <button class="btn btn-primary" onclick="addToCart('T-shirt confort', 16.99)">Ajouter au panier</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="product-description">
+        <h2>Description</h2>
+        <p>
+            Le T-shirt confort est le choix parfait pour ceux qui recherchent à la fois style et confort. Fabriqué en tissu doux et respirant, il offre une sensation agréable sur la peau tout au long de la journée. Sa coupe décontractée et son design intemporel en font un incontournable de votre garde-robe. Idéal pour les activités quotidiennes ou pour se détendre à la maison.
+        </p>
+    </div>
+
+    <section class="category-summary">
+        <h2>Découvrez nos autres catégories de produits</h2>
+        <div class="categories">
+            <div class="category">
+                <a href="../../categories/chaussures.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégoriechausure.jfif" alt="Chaussures" class="category-image">
+                        <div class="overlay">
+                            <h3>Chaussures</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/tshirt.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégorietshirt.jfif" alt="T-shirts" class="category-image">
+                        <div class="overlay">
+                            <h3>T-shirts</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/pantalons.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégoriepantalon.jfif" alt="Pantalons" class="category-image">
+                        <div class="overlay">
+                            <h3>Pantalons</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/ensembles.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégorieensemble.jfif" alt="Ensembles" class="category-image">
+                        <div class="overlay">
+                            <h3>Ensembles</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+
+    <script>
+        function changeImage(thumbnail) {
+            var mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+        }
+    </script>
+</body>
+</html>

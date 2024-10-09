@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="ajava.js"></script>
+    <title>Détails du produit - Pantalon thermo extensible</title>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Accueil</a></li>
+                <li><a href="../../menue/produit.html">Produits</a></li>
+                <li><a href="../../menue/a_propos.html">À propos</a></li>
+                <li><a href="../../menue/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cart-toggle" onclick="goToCart()">
+            🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+        </button>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+  
+    <div class="product-detail">
+        <div class="product-images">
+            <img src="../image/pantalonthermoextensible.webp" alt="Pantalon thermo extensible" class="main-image" id="mainImage">
+            <div class="thumbnail-images">
+                <img src="../image/pantalonthermoextensible.webp" alt="Pantalon thermo extensible - vue 1" class="thumbnail" onclick="changeImage(this)">
+                <img src="../../menue/image2/pantthermo2.webp" alt="Pantalon thermo extensible - vue 2" class="thumbnail" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1>Pantalon thermo extensible</h1>
+            <p class="price"><span class="old-price">44,00€</span> 35,00€</p>
+            <p class="discount">-20%</p>
+
+            <div class="size-selection">    
+                <label for="size">Choisissez votre taille :</label>
+                <select id="size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="product">
+                <button class="btn btn-primary" onclick="addToCart('Pantalon thermo extensible', 35.00)">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-description">
+        <h2>Description</h2>
+        <p>
+            Le Pantalon thermo extensible est parfait pour les jours froids. Conçu avec un tissu isolant et extensible, il offre un confort optimal tout en conservant la chaleur. Sa coupe moderne et sa taille élastique garantissent un ajustement parfait. Idéal pour les activités en extérieur ou pour un look décontracté à la maison, ce pantalon est un must-have pour votre garde-robe d'hiver.
+        </p>
+    </div>
+
+    <section class="category-summary">
+        <h2>Découvrez nos autres catégories de produits</h2>
+        <div class="categories">
+            <div class="category">
+                <a href="../../categories/chaussures.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégoriechausure.jfif" alt="Chaussures" class="category-image">
+                        <div class="overlay">
+                            <h3>Chaussures</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/tshirt.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégorietshirt.jfif" alt="T-shirts" class="category-image">
+                        <div class="overlay">
+                            <h3>T-shirts</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/pantalons.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégoriepantalon.jfif" alt="Pantalons" class="category-image">
+                        <div class="overlay">
+                            <h3>Pantalons</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/ensembles.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégorieensemble.jfif" alt="Ensembles" class="category-image">
+                        <div class="overlay">
+                            <h3>Ensembles</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+
+    <script>
+        function changeImage(thumbnail) {
+            var mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+        }
+    </script>
+</body>
+</html>

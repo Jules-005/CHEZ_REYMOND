@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="ajava.js"></script>
+    <title>Détails du produit - Chemise manches courtes</title>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Accueil</a></li>
+                <li><a href="../../menue/produit.html">Produits</a></li>
+                <li><a href="../../menue/a_propos.html">À propos</a></li>
+                <li><a href="../../menue/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cart-toggle" onclick="goToCart()">
+            🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+        </button>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+    
+    <script>
+        const articles = [
+            // Catégories prioritaires (accès direct avec ../)
+            { title: "T-shirts", category: "T-shirts", link: "../tshirt.html" },
+            { title: "Pantalons", category: "Pantalons", link: "../pantalons.html" },
+            { title: "Ensembles", category: "Ensembles", link: "../ensembles.html" },
+            { title: "Chaussures", category: "Chaussures", link: "../chaussures.html" },
+    
+            // Articles dans le dossier "article" (accès direct)
+            { title: "Bottines lacées Bugatti", category: "Chaussures", link: "bottinelacéesbugatti.webp.html" },
+            { title: "Basket Kappa", category: "Chaussures", link: "basketkappa.html" },
+            { title: "Chaussure de randonnée", category: "Chaussures", link: "chaussure de randonnée.html" },
+            { title: "Mocassins", category: "Chaussures", link: "mocassins.html" },
+            { title: "Slippers", category: "Chaussures", link: "slippers.html" },
+            { title: "Sandales de marche", category: "Chaussures", link: "sandales de marche.html" },
+            { title: "Slippers Mustang", category: "Chaussures", link: "slippers mustang.html" },
+            { title: "Snikers", category: "Chaussures", link: "snikers.html" },
+            { title: "Costume 2 pièces veste et pantalon", category: "Ensembles", link: "Costume 2 pièces veste et pantalon.html" },
+            { title: "Costume Slim (ens. 4 pièces)", category: "Ensembles", link: "Costume Slim (ens. 4 pces).html" },
+            { title: "T-shirt et bermuda", category: "Ensembles", link: "T-shirt et bermuda.html" },
+            { title: "Ensemble survêtement Nike", category: "Ensembles", link: "ensemble survetement Nike.html" },
+            { title: "Ensemble survêtement Puma", category: "Ensembles", link: "Ensemble survetement Puma.html" },
+            { title: "Ensemble survêtement Adidas", category: "Ensembles", link: "Ensemble survetement Adidas.html" },
+            { title: "Cargo", category: "Pantalons", link: "cargo.html" },
+            { title: "Jean classique", category: "Pantalons", link: "jeanClasique.html" },
+            { title: "Jean élastiqué", category: "Pantalons", link: "jeanelastiqué.html" },
+            { title: "Bermuda long extensible", category: "Pantalons", link: "Bermuda long extensible.html" },
+            { title: "Jean extensible", category: "Pantalons", link: "jeanextensible.html" },
+            { title: "Jean slim", category: "Pantalons", link: "JeanSlim.html" },
+            { title: "Pantalon extensible", category: "Pantalons", link: "pantalonextensible.html" },
+            { title: "Jogging", category: "Pantalons", link: "Jogging.html" },
+            { title: "Pantalon thermo-extensible", category: "Pantalons", link: "pantalonthermoextensible.html" },
+            { title: "Chemise à manches longues", category: "Chemises", link: "chemise à manche longue.html" },
+            { title: "Chemise à manches courtes", category: "Chemises", link: "Chemise manches courtes.html" },
+            { title: "T-shirt col Henley", category: "T-shirts", link: "T-shirt col Henley.html" },
+            { title: "Lot de 3 t-shirts à col", category: "T-shirts", link: "Lot de 3 t-shirts à col.html" },
+            { title: "T-shirt confort", category: "T-shirts", link: "T-shirt confort.html" },
+            { title: "T-shirt coupe confort", category: "T-shirts", link: "T-shirt coupe confort.html" },
+            { title: "T-shirt en coton", category: "T-shirts", link: "T-shirt en coton.html" },
+            { title: "Polo", category: "T-shirts", link: "polo.html" },
+        ];
+    
+        function showSuggestions() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const suggestionsContainer = document.getElementById("suggestions");
+            suggestionsContainer.innerHTML = '';
+    
+            if (query.length === 0) {
+                return; // Ne rien afficher si la barre de recherche est vide
+            }
+    
+            const filteredArticles = articles.filter(article =>
+                article.title.toLowerCase().includes(query) ||
+                article.category.toLowerCase().includes(query)
+            );
+    
+            if (filteredArticles.length > 0) {
+                filteredArticles.sort((a, b) => {
+                    // Prioriser les catégories avant les titres
+                    if (a.category.toLowerCase().startsWith(query) && !b.category.toLowerCase().startsWith(query)) return -1;
+                    if (!a.category.toLowerCase().startsWith(query) && b.category.toLowerCase().startsWith(query)) return 1;
+                    return 0;
+                });
+    
+                filteredArticles.forEach(article => {
+                    const div = document.createElement("div");
+                    div.classList.add("suggestion");
+                    div.innerHTML = `<strong>${article.category}</strong> - ${article.title}`;
+                    div.onclick = () => {
+                        window.location.href = article.link; // Redirection vers le lien
+                    };
+                    suggestionsContainer.appendChild(div);
+                });
+            }
+        }
+    
+        function searchArticles() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const resultsContainer = document.getElementById("results");
+            resultsContainer.innerHTML = '';
+    
+            const filteredArticles = articles.filter(article =>
+                article.title.toLowerCase().includes(query) ||
+                article.category.toLowerCase().includes(query)
+            );
+    
+            if (filteredArticles.length > 0) {
+                filteredArticles.forEach(article => {
+                    const div = document.createElement("div");
+                    div.innerText = `${article.title} - ${article.category}`;
+                    resultsContainer.appendChild(div);
+                });
+            } else {
+                resultsContainer.innerText = "Aucun résultat trouvé.";
+            }
+        }
+    </script>
+    <div class="product-detail">
+        <div class="product-images">
+            <img src="../image/Chemise manches courtes.webp" alt="Chemise manches courtes" class="main-image" id="mainImage">
+            <div class="thumbnail-images">
+                <img src="../image/Chemise manches courtes.webp" alt="Chemise manches courtes - vue 1" class="thumbnail" onclick="changeImage(this)">
+                <img src="../../menue/image2/chemiseornge2.webp" alt="Chemise manches courtes - vue 2" class="thumbnail" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1>Chemise manches courtes</h1>
+            <p class="price"><span class="old-price">22.99€</span> 10.99€</p>
+
+            <div class="size-selection">    
+                <label for="size">Choisissez votre taille :</label>
+                <select id="size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="product">
+                <button class="btn btn-primary" onclick="addToCart('Chemise manches courtes', 10.99)">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-description">
+        <h2>Description</h2>
+        <p>
+            La chemise à manches courtes est idéale pour les journées ensoleillées. Conçue dans un tissu léger et respirant, elle assure confort et élégance. Parfaite pour les sorties décontractées ou pour une journée au bureau, cette chemise s’associe facilement avec un short ou un pantalon. Son style classique et sa coupe flatteuse en font un must-have pour toute garde-robe estivale.
+        </p>
+    </div>
+
+    <section class="category-summary">
+        <h2>Découvrez nos autres catégories de produits</h2>
+        <div class="categories">
+            <div class="category">
+                <a href="../../categories/chaussures.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégoriechausure.jfif" alt="Chaussures" class="category-image">
+                        <div class="overlay">
+                            <h3>Chaussures</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/tshirt.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégorietshirt.jfif" alt="T-shirts" class="category-image">
+                        <div class="overlay">
+                            <h3>T-shirts</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/pantalons.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégoriepantalon.jfif" alt="Pantalons" class="category-image">
+                        <div class="overlay">
+                            <h3>Pantalons</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../../categories/ensembles.html">
+                    <div class="category-image-wrapper">
+                        <img src="../../menue/image/imagecatégorieensemble.jfif" alt="Ensembles" class="category-image">
+                        <div class="overlay">
+                            <h3>Ensembles</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+
+    <script>
+        function changeImage(thumbnail) {
+            var mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+        }
+    </script>
+</body>
+</html>

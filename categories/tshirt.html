@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-shirts - Ma Boutique de Vêtements</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="java.js"></script>
+</head>
+<body>
+    <header>
+        <h1>CHEZ REYMOND; T-shirts</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../menue/produit.html">Produits</a></li>
+                <li><a href="../menue/a_propos.html">À propos</a></li>
+                <li><a href="../menue/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cart-toggle" onclick="goToCart()">
+            🛒 Mon Panier <span class="item-count" id="item-count">0</span>
+        </button>
+    </header>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Rechercher des articles..." onkeyup="showSuggestions()">
+        <button onclick="searchArticles()">🔍</button>
+        <div id="suggestions"></div> <!-- Div pour afficher les suggestions -->
+    </div>
+    
+    <div id="results"></div>
+
+    <section class="products">
+        <!-- Première ligne de 4 produits -->
+        <div class="product">
+            <a href="article/chemise à manche longue.html">
+                <div class="product-image-wrapper">
+                    <img src="image/chemise à manche longue.webp" alt="chemise à manche longue" class="product-image">
+                    <div class="overlay">
+                        <h3>Chemise à manche longue</h3>
+                        <p>Prix : 31.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/Chemise manches courtes.html">
+                <div class="product-image-wrapper">
+                    <img src="image/Chemise manches courtes.webp" alt="Chemise manches courtes" class="product-image">
+                    <div class="overlay">
+                        <h3>Chemise manches courtes</h3>
+                        <p>
+                            <span class="old-price">22.99€</span> 10.99
+                        </p>
+                        <p class="discount">-52%</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/Lot de 3 t-shirts à col.html">
+                <div class="product-image-wrapper">
+                    <img src="image/Lot de 3 t-shirts à col.webp" alt="Lot de 3 t-shirts à col" class="product-image">
+                    <div class="overlay">
+                        <h3>Lot de 3 t-shirts à col</h3>
+                        <p>Prix : 31.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/T-shirt col Henley.html">
+                <div class="product-image-wrapper">
+                    <img src="image/T-shirt col Henley.webp" alt="T-shirt col Henley" class="product-image">
+                    <div class="overlay">
+                        <h3>T-shirt col Henley</h3>
+                        <p>Prix : 23.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    
+        <!-- Deuxième ligne de 4 produits -->
+        <div class="product">
+            <a href="article/T-shirt confort.html">
+                <div class="product-image-wrapper">
+                    <img src="image/T-shirt confort.webp" alt="T-shirt confort" class="product-image">
+                    <div class="overlay">
+                        <h3>T-shirt confort</h3>
+                        <p>Prix : 16.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/T-shirt coupe confort.html">
+                <div class="product-image-wrapper">
+                    <img src="image/T-shirt coupe confort.webp" alt="T-shirt coupe confort" class="product-image">
+                    <div class="overlay">
+                        <h3>T-shirt coupe confort</h3>
+                        <p>
+                            <span class="old-price">12.99</span> 10.33
+                        </p>
+                        <p class="discount">-20%</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/T-shirt en coton.html">
+                <div class="product-image-wrapper">
+                    <img src="image/T-shirt en coton.webp" alt="T-shirt en coton" class="product-image">
+                    <div class="overlay">
+                        <h3>T-shirt en coton</h3>
+                        <p>
+                            <span class="old-price">11.99</span> 8.99
+                        </p>
+                        <p class="discount">-25%</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="article/polo.html">
+                <div class="product-image-wrapper">
+                    <img src="image/polo.webp" alt="polo" class="product-image">
+                    <div class="overlay">
+                        <h3>Polo</h3>
+                        <p>Prix : 17.99€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="category-summary">
+        <h2>Découvrez nos différentes catégories de produits</h2>
+        <div class="categories">
+            <div class="category">
+                <a href="../categories/chaussures.html">
+                    <div class="category-image-wrapper">
+                        <img src="../menue/image/imagecatégoriechausure.jfif" alt="Chaussures" class="category-image">
+                        <div class="overlay">
+                            <h3>Chaussures</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../categories/pantalons.html">
+                    <div class="category-image-wrapper">
+                        <img src="../menue/image/imagecatégoriepantalon.jfif" alt="Pantalons" class="category-image">
+                        <div class="overlay">
+                            <h3>Pantalons</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../categories/ensembles.html">
+                    <div class="category-image-wrapper">
+                        <img src="../menue/image/imagecatégorieensemble.jfif" alt="Ensembles" class="category-image">
+                        <div class="overlay">
+                            <h3>Ensembles</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="../menue/promotion.html">
+                    <div class="category-image-wrapper">
+                        <img src="../categories/image/imagepromotion.jfif" alt="promotion" class="category-image">
+                        <div class="overlay">
+                            <h3>Promotions</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy;2024 CHEZ REYMOND, Ma Boutique de Vêtements préférée</p>
+    </footer>
+</body>
+</html>
