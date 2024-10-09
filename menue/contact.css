@@ -114,21 +114,20 @@ button:hover {
 
 #results {
     margin-top: 20px;
+    margin-left: auto;
 }
-
 /* Style pour les suggestions */
 #suggestions {
     position: absolute;
     top: 40px;
-    left: 0;
-    width: 375px;
+    width: 37,5%;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 4px;
     max-height: 150px;
     overflow-y: auto;
     z-index: 1000;
-    margin-left: 40%;
+    margin-left: auto;
 }
 
 .suggestion {
