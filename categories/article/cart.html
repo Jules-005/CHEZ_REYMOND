@@ -413,7 +413,7 @@ function showSuggestions() {
             total += item.price;
         });
 
-        totalPriceContainer.innerText = `${total}€`;
+        totalPriceContainer.innerText = `${total.toFixed(2)}€`;
     }
 
     function removeFromCart(index) {
