@@ -42,10 +42,10 @@ const articles = [
 function showSuggestions() {
     const query = document.getElementById("search").value.toLowerCase();
     const suggestionsContainer = document.getElementById("suggestions");
-    suggestionsContainer.innerHTML = '';
+    suggestionsContainer.innerHTML = ''; // Vider les suggestions
 
     if (query.length === 0) {
-        return; // Ne rien afficher si la barre de recherche est vide
+        return; // Ne rien afficher si la recherche est vide
     }
 
     const filteredArticles = articles.filter(article =>
@@ -76,23 +76,35 @@ function showSuggestions() {
 function searchArticles() {
     const query = document.getElementById("search").value.toLowerCase();
     const resultsContainer = document.getElementById("results");
-    resultsContainer.innerHTML = '';
+    const suggestionsContainer = document.getElementById("suggestions");
 
+    resultsContainer.innerHTML = ''; // On vide les résultats précédents
+    suggestionsContainer.innerHTML = ''; // On vide les suggestions pour les cacher
+
+    // Ne rien afficher si la barre de recherche est vide
+    if (query.length === 0) {
+        return;
+    }
+
+    // Filtrer les articles correspondants
     const filteredArticles = articles.filter(article =>
         article.title.toLowerCase().includes(query) ||
         article.category.toLowerCase().includes(query)
     );
 
+    // Si des résultats sont trouvés, afficher les 3 premiers
     if (filteredArticles.length > 0) {
-        filteredArticles.forEach(article => {
+        filteredArticles.slice(0, 3).forEach(article => { // Prendre les 3 premiers articles
             const div = document.createElement("div");
-            div.innerText = `${article.title} - ${article.category}`;
+            div.innerHTML = `<a href="${article.link}" class="result-link">${article.title} - ${article.category}</a>`;
             resultsContainer.appendChild(div);
         });
     } else {
-        resultsContainer.innerText = "Aucun résultat trouvé.";
+        resultsContainer.innerText = "Aucun résultat trouvé."; // Message si aucun résultat n'est trouvé
     }
 }
+
+
 let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
 

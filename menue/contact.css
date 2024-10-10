@@ -165,3 +165,35 @@ button:hover {
     right: -5px;
     font-size: 12px;
 }
+/* Conteneur des résultats */
+#results {
+    display: flex;             /* Utilise flexbox pour centrer le contenu */
+    justify-content: center;   /* Centre horizontalement le contenu */
+    margin-top: 20px;          /* Espacement au-dessus des résultats */
+    margin-left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; 
+}
+
+/* Style pour le lien affiché */
+.result-link {
+    display: block;            /* Le lien prend la largeur complète */
+    width: 100%; 
+    max-width: 400px;
+    background-color: #f1f1f1; /* Couleur de fond légère pour la case */
+    padding: 10px;             /* Espace intérieur pour rendre le texte lisible */
+    margin-bottom: 5px;        /* Espacement en bas pour séparer plusieurs résultats */
+    text-align: center;        /* Centrer le texte à l'intérieur du lien */
+    text-decoration: none;     /* Supprime le soulignement du lien */
+    color: #333;               /* Couleur du texte */
+    border-radius: 4px;        /* Bords arrondis pour la case */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre pour donner du relief */
+    transition: background-color 0.3s ease; /* Animation pour l'effet au survol */
+}
+
+/* Effet au survol du lien */
+.result-link:hover {
+    background-color: #ddd; /* Couleur de fond au survol */
+}

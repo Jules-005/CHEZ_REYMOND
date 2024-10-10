@@ -214,6 +214,69 @@ button:hover {
             display: block;
             transition: opacity 0.3s;
         }
+        /* Conteneur des résultats */
+#results {
+    display: flex;             /* Utilise flexbox pour centrer le contenu */
+    justify-content: center;   /* Centre horizontalement le contenu */
+    margin-top: 20px;          /* Espacement au-dessus des résultats */
+    margin-left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; 
+}
+
+/* Style pour le lien affiché */
+.result-link {
+    display: block;            /* Le lien prend la largeur complète */
+    width: 100%; 
+    max-width: 400px;
+    background-color: #f1f1f1; /* Couleur de fond légère pour la case */
+    padding: 10px;             /* Espace intérieur pour rendre le texte lisible */
+    margin-bottom: 5px;        /* Espacement en bas pour séparer plusieurs résultats */
+    text-align: center;        /* Centrer le texte à l'intérieur du lien */
+    text-decoration: none;     /* Supprime le soulignement du lien */
+    color: black;              /* Couleur du texte noir */
+    border-radius: 4px;        /* Bords arrondis pour la case */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre pour donner du relief */
+    transition: background-color 0.3s ease; /* Animation pour l'effet au survol */
+}
+
+/* Effet au survol du lien */
+.result-link:hover {
+    background-color: #ddd; /* Couleur de fond au survol */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.category:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+}
+
     </style>
 </head>
 <body>
@@ -344,10 +407,10 @@ button:hover {
 function showSuggestions() {
     const query = document.getElementById("search").value.toLowerCase();
     const suggestionsContainer = document.getElementById("suggestions");
-    suggestionsContainer.innerHTML = '';
+    suggestionsContainer.innerHTML = ''; // Vider les suggestions
 
     if (query.length === 0) {
-        return; // Ne rien afficher si la barre de recherche est vide
+        return; // Ne rien afficher si la recherche est vide
     }
 
     const filteredArticles = articles.filter(article =>
@@ -372,6 +435,37 @@ function showSuggestions() {
             };
             suggestionsContainer.appendChild(div);
         });
+    }
+}
+
+function searchArticles() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const resultsContainer = document.getElementById("results");
+    const suggestionsContainer = document.getElementById("suggestions");
+
+    resultsContainer.innerHTML = ''; // On vide les résultats précédents
+    suggestionsContainer.innerHTML = ''; // On vide les suggestions pour les cacher
+
+    // Ne rien afficher si la barre de recherche est vide
+    if (query.length === 0) {
+        return;
+    }
+
+    // Filtrer les articles correspondants
+    const filteredArticles = articles.filter(article =>
+        article.title.toLowerCase().includes(query) ||
+        article.category.toLowerCase().includes(query)
+    );
+
+    // Si des résultats sont trouvés, afficher les 3 premiers
+    if (filteredArticles.length > 0) {
+        filteredArticles.slice(0, 3).forEach(article => { // Prendre les 3 premiers articles
+            const div = document.createElement("div");
+            div.innerHTML = `<a href="${article.link}" class="result-link">${article.title} - ${article.category}</a>`;
+            resultsContainer.appendChild(div);
+        });
+    } else {
+        resultsContainer.innerText = "Aucun résultat trouvé."; // Message si aucun résultat n'est trouvé
     }
 }
 
