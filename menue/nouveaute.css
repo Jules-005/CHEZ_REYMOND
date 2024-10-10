@@ -225,7 +225,7 @@ button:hover {
 #results {
     display: flex;             /* Utilise flexbox pour centrer le contenu */
     justify-content: center;   /* Centre horizontalement le contenu */
-    margin-top: 20px;          /* Espacement au-dessus des résultats */
+    margin-top: 2px;          /* Espacement au-dessus des résultats */
     margin-left: 0;
     flex-direction: column;
     justify-content: center;
