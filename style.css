@@ -9,7 +9,6 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    overflow: hidden; /* Évite le défilement */
             background: linear-gradient(270deg, #ffefba, #ffffff, #ffefba, #ffffff);
             background-size: 400% 400%; /* Pour permettre à l'animation de bouger */
             animation: gradient-animation 10s ease infinite; /* Durée et type d'animation */
@@ -83,6 +82,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+    position: relative;
     width: 100%;
 }
 .search-container {
